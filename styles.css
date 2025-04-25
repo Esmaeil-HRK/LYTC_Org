@@ -1,0 +1,333 @@
+/* Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Brand Colors */
+    --primary-color: #8C73E8;
+    --secondary-color: #6425BC;
+    --accent-color: #FFFFFF;
+    --shadow-color: rgba(19, 0, 32, 0.5); /* #130020 with alpha */
+    --glow-color: rgba(140, 115, 232, 0.6); /* Primary color with alpha */
+    --background-gradient: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Layout */
+    --padding: 1rem;
+    --spacing: 1.5rem;
+    --corner-radius: 12px; /* Corresponds roughly to '2xl' */
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    font-family: var(--font-secondary);
+    background: var(--background-gradient);
+    color: var(--accent-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* Needed for particle overlay */
+}
+
+/* Particle Background */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Behind content */
+    /* Gaussian blur effect - apply via filter if needed, but can be performance heavy */
+    /* filter: blur(2px); */
+}
+
+/* Main Container */
+.container {
+    position: relative;
+    z-index: 1; /* Above particles */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes footer down */
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: var(--padding);
+    text-align: center;
+    max-width: 1200px; /* Limit content width on large screens */
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    padding: var(--spacing) 0;
+}
+
+.logo {
+    max-width: 180px;
+    /* height: 180px; Removed fixed height */
+    object-fit: cover;
+    border-radius: var(--corner-radius); /* Use defined corner radius */
+    margin-bottom: var(--spacing);
+    filter: drop-shadow(2px 4px 6px var(--shadow-color));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(3px 6px 8px var(--glow-color));
+}
+
+/* Main Content */
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+}
+
+.headline {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Responsive font size */
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.5rem;
+    text-shadow:
+        0 0 15px var(--glow-color), /* Purple Glow */
+        2px 2px 5px var(--shadow-color); /* Soft Drop Shadow */
+}
+
+.subheading {
+    font-family: var(--font-secondary);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: var(--font-weight-light);
+    margin-bottom: var(--spacing);
+    max-width: 600px; /* Prevent text from being too wide */
+    text-shadow:
+        0 0 10px var(--glow-color),
+        1px 1px 3px var(--shadow-color);
+}
+
+/* Countdown Timer */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing);
+    margin: var(--spacing) 0;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05); /* Subtle background */
+    padding: var(--padding) calc(var(--padding) * 1.5);
+    border-radius: var(--corner-radius);
+    min-width: 80px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+}
+
+.time-block span:first-child {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.1;
+}
+
+.time-block .label {
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-regular);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+    opacity: 0.8;
+}
+
+/* Progress Indicator (Alternative) */
+.progress-indicator {
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--corner-radius);
+    overflow: hidden;
+    margin: var(--spacing) 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: var(--accent-color);
+    width: 0; /* Set dynamically */
+    border-radius: var(--corner-radius);
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-indicator span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
+/* Footer */
+footer {
+    width: 100%;
+    padding: var(--spacing) var(--padding);
+    margin-top: auto; /* Pushes footer to bottom */
+}
+
+.signup-section {
+    margin-bottom: var(--spacing);
+}
+
+.signup-section p {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+.signup-form input[type="email"] {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border-radius: var(--corner-radius);
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    font-family: var(--font-secondary);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+    min-width: 200px; /* Ensure input has minimum width */
+}
+
+.signup-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.signup-form input[type="email"]:focus {
+    box-shadow: 0 0 8px 1px var(--glow-color);
+}
+
+.signup-form button {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--corner-radius);
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-form button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px 2px var(--glow-color); /* Hover Glow */
+}
+
+.social-links {
+    margin-bottom: 1rem; /* Space before copyright */
+}
+
+.social-links a {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--glow-color); /* Hover Glow */
+}
+
+.copyright {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: var(--spacing); /* Add space above copyright if needed */
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Staggered Fade-in Delays */
+.logo.fade-in { animation-delay: 0.2s; }
+.headline.fade-in { animation-delay: 0.4s; }
+.subheading.fade-in { animation-delay: 0.6s; }
+.countdown.fade-in, .progress-indicator.fade-in { animation-delay: 0.8s; }
+.signup-section.fade-in { animation-delay: 1.0s; }
+.social-links.fade-in { animation-delay: 1.2s; }
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .countdown {
+        gap: calc(var(--spacing) * 0.75);
+    }
+    .time-block {
+        padding: calc(var(--padding) * 0.8) calc(var(--padding) * 1.2);
+        min-width: 70px;
+    }
+    .signup-form {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: stretch; /* Make input/button full width */
+    }
+}
+
+@media (max-width: 480px) {
+    .headline {
+        font-size: 2.5rem; /* Further reduce size */
+    }
+    .subheading {
+        font-size: 1rem;
+    }
+    .time-block {
+        padding: var(--padding) * 0.6;
+        min-width: 60px;
+    }
+    .time-block span:first-child {
+        font-size: 1.8rem;
+    }
+     .social-links a {
+        font-size: 1.3rem;
+        margin: 0 0.5rem;
+    }
+}

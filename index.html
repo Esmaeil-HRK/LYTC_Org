@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LYTC - Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for social icons (optional, replace with SVGs if preferred) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- PARTICLE CANVAS -->
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <header>
+            <!-- INSERT LOGO HERE -->
+            <img src="lytc_logo.jpg" alt="LYTC logo – abstract 3D purple nodes" class="logo fade-in">
+        </header>
+
+        <main class="content">
+            <h1 class="headline fade-in">Coming Soon</h1>
+            <p class="subheading fade-in">Building a sustainable tech community.</p>
+
+            <div id="countdown" class="countdown fade-in">
+                <div class="time-block">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-block">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-block">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-block">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+             <!-- Optional Progress Indicator (Alternative to countdown) -->
+             <!-- <div class="progress-indicator fade-in">
+                 <div class="progress-bar" style="width: 30%;"></div>
+                 <span>Launching Soon...</span>
+            </div> -->
+           
+        </main>
+
+        <footer>
+            <div class="signup-section fade-in">
+                <p>Stay updated! Sign up for notifications:</p>
+                <form id="signup-form" class="signup-form">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Notify Me</button>
+                </form>
+            </div>
+            <div class="social-links fade-in">
+                 <!-- Replace # with actual links -->
+                <a href="https://www.facebook.com/profile.php?id=61559728534002" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+             <p class="copyright">© <span id="current-year"></span> Libyan Youth for Technology and Communications. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Particles.js Library -->
+    <script src="particles.js-master/particles.min.js"></script> <!-- Corrected path -->
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
